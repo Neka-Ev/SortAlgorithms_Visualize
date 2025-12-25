@@ -1,0 +1,32 @@
+{
+  "name": "sortalgorithms_visualize",
+  "version": "2.0.0",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "electron-builder"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "electron": "^39.2.6",
+    "electron-builder": "^26.0.12"
+  },
+  "build": {
+    "appId": "com.sortalgorithms.visualize",
+    "productName": "Sort Algorithms Visualizer",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+     "**/*"
+    ],
+    "win": {
+      "icon": "assets/logo.ico",
+      "target": "nsis"
+    }
+  }
+}

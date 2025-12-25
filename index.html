@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>排序算法可视化</title>
+  <link rel="stylesheet" href="styles/main.css">
+  <link rel="stylesheet" href="styles/github-dark.min.css">
+</head>
+<body>
+  <div id="app">
+    <h1>排序算法可视化</h1>
+
+    <!-- 主模式切换：算法演示模式 / 算法对比模式 -->
+    <div id="main-mode-tabs">
+      <button id="tab-single" class="main-mode-tab active">算法演示</button>
+      <button id="tab-compare" class="main-mode-tab">算法对比</button>
+    </div>
+
+    <!-- 算法演示模式视图 -->
+    <div id="single-mode-view">
+      <div id="controls">
+        <!-- 算法演示控制区 -->
+        <div class="control-section control-section-algorithm">
+          <div class="control-section-title">算法演示控制</div>
+          <div class="control-row control-row-top">
+
+            <button id="start-btn">开始排序</button>
+            <button id="pause-resume-btn" disabled>暂停</button>
+            <button id="reset-in-sort-btn" disabled>重置</button>
+            <button id="next-step-btn" style="display:none">下一步</button>
+          </div>
+          <div class="control-row control-row-bottom">
+            <div id="speed-control">
+              <label for="speed-slider">速度</label>
+              <input type="range" id="speed-slider" min="10" max="500" value="40" step="10">
+              <span id="speed-value">40 ms</span>
+            </div>
+            <div id="array-size-control">
+              <label for="array-size">数组规模</label>
+              <input type="range" id="array-size" min="2" max="200" value="15" step="1">
+              <input type="number" id="array-size-input" min="2" max="200" value="15" step="1">
+            </div>
+          </div>
+        </div>
+
+        <!-- 输入数据控制区 -->
+        <div class="control-section control-section-input">
+          <div class="control-section-title">数据输入控制</div>
+          <div class="control-row control-row-input">
+            <button id="reset-btn">随机生成</button>
+            <button id="manual-input-btn">手动录入</button>
+          </div>
+        </div>
+
+        <!-- 演示执行模式区 -->
+        <div class="control-section control-section-mode">
+          <div class="control-section-title">演示执行控制</div>
+          <div id="mode-control" class="control-row control-row-mode">
+            <select id="algorithm-select">
+              <option value="bubbleSort">冒泡排序</option>
+              <option value="selectionSort">选择排序</option>
+              <option value="mergeSort">归并排序</option>
+              <option value="quickSort">快速排序</option>
+            </select>
+            <button id="mode-toggle" class="mode-toggle-btn" type="button">
+              <span class="mode-icon">⏩</span>
+              <span class="mode-text">自动模式</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="content-area">
+        <!-- 可视化区域 -->
+        <div id="visualization"></div>
+
+        <!-- 伪代码显示区域 -->
+        <div id="code-panel">
+          <div class="code-panel-header">
+            <span class="code-panel-title">算法代码演示</span>
+            <div class="code-lang-select-group">
+              <label for="language-select">语言</label>
+              <select id="language-select">
+                <option value="pseudo">伪代码</option>
+                <option value="c">C</option>
+                <option value="cpp">C++</option>
+                <option value="python">Python</option>
+                <option value="java">Java</option>
+              </select>
+            </div>
+          </div>
+          <pre id="pseudocode"><code id="code-block" class="hljs"></code></pre>
+        </div>
+      </div>
+    </div>
+
+    <!-- 算法对比模式视图 -->
+    <div id="compare-mode-view" class="hidden">
+      <div id="compare-controls">
+        <div class="control-section control-section-compare">
+          <div class="control-section-title">算法演示控制</div>
+          <div class="control-row control-row-top">
+            <div class="compare-select-group">
+              <label>算法 A</label>
+              <select id="compare-algo-1">
+                <option value="bubbleSort">冒泡排序</option>
+                <option value="selectionSort">选择排序</option>
+                <option value="mergeSort">归并排序</option>
+                <option value="quickSort">快速排序</option>
+              </select>
+            </div>
+            <div class="compare-select-group">
+              <label>算法 B</label>
+              <select id="compare-algo-2">
+                <option value="selectionSort">选择排序</option>
+                <option value="bubbleSort">冒泡排序</option>
+                <option value="mergeSort">归并排序</option>
+                <option value="quickSort">快速排序</option>
+              </select>
+            </div>
+            <button id="compare-start-btn">开始对比</button>
+            <button id="compare-pause-btn" disabled>暂停对比</button>
+            <button id="compare-reset-in-sort-btn" disabled>重置</button>
+          </div>
+          <div class="control-row control-row-bottom">
+            <div id="compare-speed-control">
+              <label for="compare-speed-slider">速度</label>
+              <input type="range" id="compare-speed-slider" min="10" max="500" value="40" step="10">
+              <span id="compare-speed-value">40 ms</span>
+            </div>
+            <div id="compare-size-control">
+              <label for="compare-size">数组规模</label>
+              <input type="range" id="compare-size" min="5" max="100" value="15" step="1">
+              <input type="number" id="compare-size-input" min="5" max="100" value="15" step="1">
+            </div>
+          </div>
+        </div>
+        <div class="control-section control-section-compare-data">
+          <div class="control-section-title">数据输入控制</div>
+          <div class="control-row control-row-bottom">
+            <button id="compare-random-btn">随机生成</button>
+            <button id="compare-manual-input-btn">手动录入</button>
+          </div>
+        </div>
+        </div>
+
+
+
+      <div class="compare-content-area">
+        <div class="compare-panel">
+          <div class="compare-panel-header">
+            <span id="compare-label-1">算法 A</span>
+            <div class="compare-stats" id="compare-stats-1">
+              <span class="compare-time">运行时间: <span id="compare-time-1">-</span></span>
+              <span class="compare-complexity">时间复杂度: <span id="compare-complexity-1">-</span></span>
+            </div>
+          </div>
+          <div id="compare-visualization-1" class="compare-visualization"></div>
+        </div>
+        <div class="compare-panel">
+          <div class="compare-panel-header">
+            <span id="compare-label-2">算法 B</span>
+            <div class="compare-stats" id="compare-stats-2">
+              <span class="compare-time">运行时间: <span id="compare-time-2">-</span></span>
+              <span class="compare-complexity">时间复杂度: <span id="compare-complexity-2">-</span></span>
+            </div>
+          </div>
+          <div id="compare-visualization-2" class="compare-visualization"></div>
+        </div>
+      </div>
+    </div>
+
+    <div id="manual-input-modal" class="modal hidden">
+      <div class="modal-content">
+        <h2>手动录入</h2>
+        <p id="manual-input-tip"></p>
+        <textarea id="manual-input-text" rows="6" placeholder="请输入数字，使用逗号分隔"></textarea>
+        <div class="manual-input-options">
+          <label><input type="radio" name="manual-input-mode" id="manual-input-order" value="order" checked> 按序生成</label>
+          <label><input type="radio" name="manual-input-mode" id="manual-input-random" value="random"> 乱序生成</label>
+        </div>
+        <div id="manual-input-error" class="error-message"></div>
+        <div class="modal-actions">
+          <button id="manual-input-clear-btn" type="button">清空</button>
+          <button id="manual-input-confirm-btn">确认</button>
+          <button id="manual-input-cancel-btn">取消</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="compare-manual-modal" class="modal hidden">
+      <div class="modal-content">
+        <h2>对比模式手动录入</h2>
+        <p id="compare-manual-tip">请输入 2-100 个数字，可以使用逗号、空格或换行分隔。</p>
+        <textarea id="compare-manual-text" rows="6" placeholder="请输入数字"></textarea>
+        <div class="manual-input-options">
+          <label><input type="radio" name="compare-manual-mode" id="compare-manual-order" value="order" checked> 按序生成</label>
+          <label><input type="radio" name="compare-manual-mode" id="compare-manual-random" value="random"> 乱序生成</label>
+        </div>
+        <div id="compare-manual-error" class="error-message"></div>
+        <div class="modal-actions">
+          <button id="compare-manual-clear-btn" type="button">清空</button>
+          <button id="compare-manual-confirm-btn">确认</button>
+          <button id="compare-manual-cancel-btn">取消</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Highlight.js 浏览器版本-->
+  <script src="js/extra/highlight.min.js"></script>
+  <!-- 渲染逻辑：单算法模式 -->
+  <script src="renderer.js"></script>
+  <!-- 渲染逻辑：算法对比模式-->
+  <script src="renderer-compare.js"></script>
+</body>
+</html>

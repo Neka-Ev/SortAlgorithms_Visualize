@@ -1,0 +1,11 @@
+QUICK-SORT(A, left, right)
+1  if left ≥ r then return
+2  pivot ← A[right]
+3  i ← left
+4  for j ← l to right - left
+5      do if A[j] < pivot
+6          then exchange A[i] ↔ A[j]
+7          i ← i + 1
+8  exchange A[i] ↔A[right]
+9  QUICK-SORT(A, left, i - 1)
+10  QUICK-SORT(A, i + 1, right)

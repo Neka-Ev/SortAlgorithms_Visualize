@@ -1,0 +1,8 @@
+1 for i ← 1 to length[A] - 1
+2     do min_idx ← i
+3         for j ← i + 1 to length[A]
+4             do if A[j] < A[min_idx]
+5                 then min_idx ← j
+6         do if min_idx != i
+7             then exchange A[i] ↔ A[min_idx]
+

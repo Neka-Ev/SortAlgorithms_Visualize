@@ -1,0 +1,6 @@
+MERGE-SORT(A, left, right)
+1    do if left ≥ right then return
+3    mid ← floor((left + right) / 2)
+4    MERGE-SORT(A, left, mid)
+5    MERGE-SORT(A, mid + 1, right)
+6    MERGE(A, left, mid, right)
