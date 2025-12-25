@@ -9,7 +9,6 @@
 ---
 
 ## 🛠️ 技术栈
-本项目采用了主流的跨平台桌面应用开发技术栈，确保了高效的性能与优雅的用户界面：
 ![Electron](image_src/Electron-39.2.svg)![JavaScript](image_src/JavaScript-F7DF1E.svg)![HTML5](image_src/HTML5-E34F26.svg)![CSS3](image_src/CSS3-1572B6.svg)![Node.js](image_src/Node.svg)
 
 ### 核心框架
