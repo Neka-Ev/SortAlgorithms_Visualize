@@ -15,7 +15,6 @@
       <button id="tab-single" class="main-mode-tab active">算法演示</button>
       <button id="tab-compare" class="main-mode-tab">算法对比</button>
     </div>
-
     <!-- 算法演示模式视图 -->
     <div id="single-mode-view">
       <div id="controls">
@@ -40,6 +39,7 @@
               <input type="range" id="array-size" min="2" max="200" value="15" step="1">
               <input type="number" id="array-size-input" min="2" max="200" value="15" step="1">
             </div>
+
           </div>
         </div>
 
@@ -67,6 +67,11 @@
               <span class="mode-text">自动模式</span>
             </button>
           </div>
+          <div id="audio-control">
+            <span>音频响应</span>
+            <label><input type="radio" name="audio-mode" id="audio-on" value="on" checked> 开启</label>
+            <label><input type="radio" name="audio-mode" id="audio-off" value="off"> 关闭</label>
+          </div>
         </div>
       </div>
 
@@ -93,7 +98,6 @@
         </div>
       </div>
     </div>
-
     <!-- 算法对比模式视图 -->
     <div id="compare-mode-view" class="hidden">
       <div id="compare-controls">
@@ -143,9 +147,6 @@
           </div>
         </div>
         </div>
-
-
-
       <div class="compare-content-area">
         <div class="compare-panel">
           <div class="compare-panel-header">
@@ -210,9 +211,7 @@
 
   <!-- Highlight.js 浏览器版本-->
   <script src="js/extra/highlight.min.js"></script>
-  <!-- 渲染逻辑：单算法模式 -->
   <script src="renderer.js"></script>
-  <!-- 渲染逻辑：算法对比模式-->
   <script src="renderer-compare.js"></script>
 </body>
 </html>

@@ -85,8 +85,8 @@ const manualInputCancelBtn = document.getElementById('manual-input-cancel-btn');
 const manualInputOrderRadio = document.getElementById('manual-input-order');
 const manualInputRandomRadio = document.getElementById('manual-input-random');
 const manualInputClearBtn = document.getElementById('manual-input-clear-btn');
-
-let lastManualInputText = '';
+const audioOnRadio = document.getElementById('audio-on');
+const audioOffRadio = document.getElementById('audio-off');
 
 // --- 状态变量 ---
 let array = [];
@@ -104,6 +104,8 @@ let cancelAutoLoop = false;
 let lastValidArraySize = arraySizeInput ? parseInt(arraySizeInput.value) || 50 : 50;
 let currentLanguage = languageSelect ? languageSelect.value : 'pseudo';
 let mainMode = 'single'; // 'single' | 'compare'
+let lastManualInputText = '';
+let audioEnabled = true;
 
 // 音频反馈相关
 let audioCtx = null;
@@ -268,8 +270,8 @@ function renderArray(highlight = []) {
 
     visualization.appendChild(bar);
 
-    if (highlightedIndex === idx) {
-      playValueTone(value, maxValue);
+    if (highlightedIndex === idx && audioEnabled) {
+        playValueTone(value, maxValue);
     }
   });
 }
@@ -625,6 +627,15 @@ if (speedSlider) {
             speedValueDisplay.textContent = `${animationDelay} ms`;
         }
     };
+}
+
+if (audioOnRadio && audioOffRadio) {
+  const syncAudio = () => {
+    audioEnabled = audioOnRadio.checked;
+  };
+  audioOnRadio.onchange = syncAudio;
+  audioOffRadio.onchange = syncAudio;
+  syncAudio();
 }
 
 // 暂停/继续 按钮事件监听器
