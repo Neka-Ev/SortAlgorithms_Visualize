@@ -21,7 +21,11 @@
 ---
 
 ## 🛠️ 技术栈
+<<<<<<< HEAD
 
+=======
+![Electron](image_src/Electron-39.2.svg)![JavaScript](image_src/JavaScript-F7DF1E.svg)![HTML5](image_src/HTML5-E34F26.svg)![CSS3](image_src/CSS3-1572B6.svg)![Node.js](image_src/Node.svg)
+>>>>>>> bc0f46ddb8d4e5f60c19f2902100343963f0971a
 
 ### 核心框架
 - [Electron ](https://www.electronjs.org/)**(^39.2.6):** 使用 Web 技术构建跨平台的原生桌面应用程序
