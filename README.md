@@ -1,16 +1,27 @@
 # Sort Algorithms Visualizer (排序算法可视化工具)
 
-## 📖 项目简介
+![Electron](image_src/Electron-39.2.svg)![JavaScript](image_src/JavaScript-F7DF1E.svg)![HTML5](image_src/HTML5-E34F26.svg)![CSS3](image_src/CSS3-1572B6.svg)![Node.js](image_src/Node.svg)
+
 
 **Sort Algorithms Visualizer** 是一款基于 **Electron** 框架开发的桌面应用程序，旨在通过直观的动画效果展示经典排序算法的执行过程。
 
 本项目不仅支持单算法的深度演示，还提供了**算法对比模式**，帮助开发者和学习者更形象地理解不同算法在时间复杂度、空间复杂度以及实际运行效率上的差异。
 
 ---
+# 目录
+
+- [技术栈](#️-技术栈)
+- [核心特性](#-核心特性)
+- [目录结构](#-目录结构)
+- [环境配置与安装](#️-环境配置与安装)
+- [使用指南](#-使用指南)
+- [程序界面](#-程序界面)
+- [Author](#-author)
+
+---
 
 ## 🛠️ 技术栈
-本项目采用了主流的跨平台桌面应用开发技术栈，确保了高效的性能与优雅的用户界面：
-![Electron](image_src/Electron-39.2.svg)![JavaScript](image_src/JavaScript-F7DF1E.svg)![HTML5](image_src/HTML5-E34F26.svg)![CSS3](image_src/CSS3-1572B6.svg)![Node.js](image_src/Node.svg)
+
 
 ### 核心框架
 - [Electron ](https://www.electronjs.org/)**(^39.2.6):** 使用 Web 技术构建跨平台的原生桌面应用程序
@@ -39,7 +50,7 @@
 
 ---
 
-## 📂 目录结构预览
+## 📂 目录结构
 
 ```text
 ├── assets/             # 预置图标与素材
